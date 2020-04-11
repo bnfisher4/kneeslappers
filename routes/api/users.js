@@ -1,13 +1,8 @@
-const mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
+const usersCtrl = require('../../controllers/users');
 
-const userSchema = new mongoose.Schema({
-    name: String,
-    email: {
-        type: String, required: true, lowercase: true, unique: true
-    },
-    password: String
-}, {
-    timestamps: true
-});
+router.post('/signup', usersCtrl.signup);
 
-module.exports = mongoose.model('User', userSchema);
+
+module.exports = router;
