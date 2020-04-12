@@ -15,11 +15,19 @@ class App extends Component {
     };
   }
 
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Hello</h1>
-        <NavBar user={this.state.user} />
+        <NavBar
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+        />
         <Route exact path='/signup' render={({ history }) =>
           <Signup
             history={history}
