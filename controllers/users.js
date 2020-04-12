@@ -8,7 +8,8 @@ module.exports = {
 async function signup(req, res) {
     const user = new User(req.body);
     try {
-        console.log(user);
+        await user.save();
+        res.json(user);
     } catch (err) {
         res.status(400).json(err);
     }

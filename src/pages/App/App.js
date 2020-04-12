@@ -11,8 +11,10 @@ class App extends Component {
       <div className="App">
         <h1>Hello</h1>
         <Nav />
-        <Route exact path='/signup' render={() =>
-          <Signup />
+        <Route exact path='/signup' render={({ history }) =>
+          <Signup
+            history={history}
+          />
         } />
         <Route exact path='/login' render={() =>
           <Login />
