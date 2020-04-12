@@ -5,6 +5,7 @@ import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
 import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
+import { getRandomJoke } from '../../utils/dadJokes-api'
 
 
 class App extends Component {
@@ -22,6 +23,16 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
+  }
+
+  async componentDidMount() {
+    try {
+      const data = await getRandomJoke();
+      const results = await data.json();
+      console.log(results);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
