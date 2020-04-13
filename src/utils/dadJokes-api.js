@@ -21,3 +21,13 @@ export function getGeneralJoke() {
         }
     })
 }
+
+export function getProgramJoke() {
+    return fetch(BASE_URL2 + "/random/type/programming", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
+            "x-rapidapi-key": `${API_KEY}`
+        }
+    })
+}

@@ -1,18 +1,22 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { getProgramJoke } from '../../utils/dadJokes-api';
 
 const ProgramJokesPage = (props) => {
-    let pro = props.user ?
-        <div>
-            <h2>Programming</h2>
-        </div>
-        :
-        <div>
-            <Redirect to='/' />
-        </div>
+
+    const [proJoke, setProJoke] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getProgramJoke();
+            const results = await data.json();
+            setProJoke(`${results[0].setup} ${results[0].punchline}`)
+        }
+        fetchData();
+    }, [])
+
     return (
         <div>
-            {pro}
+            {proJoke}
         </div>
     )
 }
