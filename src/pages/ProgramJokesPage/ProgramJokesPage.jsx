@@ -16,6 +16,7 @@ const ProgramJokesPage = (props) => {
 
     return (
         <div>
+            <h1>Programming Jokes</h1>
             {proJoke}
         </div>
     )

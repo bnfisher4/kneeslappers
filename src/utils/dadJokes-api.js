@@ -1,9 +1,8 @@
-const BASE_URL = 'https://dad-jokes.p.rapidapi.com/'
-const BASE_URL2 = 'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes'
+const BASE_URL = 'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes'
 const API_KEY = '30ff1b0919msh0fdee39a9b0e567p12aa23jsn5300cbd8efaa'
 
 export function getRandomJoke() {
-    return fetch(BASE_URL + "/random/jokes", {
+    return fetch(BASE_URL + "/random/jokes/15", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
@@ -13,7 +12,7 @@ export function getRandomJoke() {
 }
 
 export function getGeneralJoke() {
-    return fetch(BASE_URL2 + "/random/type/general", {
+    return fetch(BASE_URL + "/random/type/general", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
@@ -23,7 +22,7 @@ export function getGeneralJoke() {
 }
 
 export function getProgramJoke() {
-    return fetch(BASE_URL2 + "/random/type/programming", {
+    return fetch(BASE_URL + "/random/type/programming", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
@@ -33,7 +32,7 @@ export function getProgramJoke() {
 }
 
 export function getKnockJoke() {
-    return fetch(BASE_URL2 + "/random/type/knock-knock", {
+    return fetch(BASE_URL + "/random/type/knock-knock", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "dad-jokes.p.rapidapi.com",

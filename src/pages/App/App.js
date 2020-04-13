@@ -10,6 +10,7 @@ import JokesPage from '../JokesPage/JokesPage';
 import GenJokesPage from '../GenJokesPage/GenJokesPage';
 import ProgramJokesPage from '../ProgramJokesPage/ProgramJokesPage';
 import KnockJokesPage from '../KnockJokesPage/KnockJokesPage';
+import RandomJokesPage from '../RandomJokesPage/RandomJokesPage';
 
 
 class App extends Component {
@@ -79,6 +80,12 @@ class App extends Component {
         } />
         <Route exact path='/knock' render={({ history }) =>
           <KnockJokesPage
+            history={history}
+            user={this.state.user}
+          />
+        } />
+        <Route exact path='/random' render={({ history }) =>
+          <RandomJokesPage
             history={history}
             user={this.state.user}
           />

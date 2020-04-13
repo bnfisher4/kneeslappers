@@ -16,6 +16,7 @@ const KnockJokesPage = (props) => {
 
     return (
         <div>
+            <h1>Knock-Knock Jokes</h1>
             {knockJoke}
         </div>
     )

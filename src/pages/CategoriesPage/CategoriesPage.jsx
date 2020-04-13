@@ -9,6 +9,7 @@ const CategoriesPage = () => {
                 <Link className='btn btn-default' to='/general'>General</Link>
                 <Link className='btn btn-default' to='/programming'>Programming</Link>
                 <Link className='btn btn-default' to='/knock'>Knock-Knock</Link>
+                <Link className='btn btn-default' to='/random'>Random</Link>
             </div>
         </div>
     )

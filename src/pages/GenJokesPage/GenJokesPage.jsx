@@ -17,6 +17,7 @@ const GenJokesPage = (props) => {
 
     return (
         <div>
+            <h1>General Jokes</h1>
             {genJoke}
         </div>
     )
