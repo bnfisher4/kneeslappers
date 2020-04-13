@@ -58,6 +58,7 @@ class App extends Component {
         <Route exact path='/' render={({ history }) =>
           <JokesPage
             history={history}
+            user={this.state.user}
           />
         } />
       </div>
