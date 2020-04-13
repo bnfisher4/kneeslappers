@@ -7,13 +7,17 @@ import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
 import { getRandomJoke } from '../../utils/dadJokes-api'
 import JokesPage from '../JokesPage/JokesPage';
+import GenJokesPage from '../GenJokesPage/GenJokesPage';
+import ProgramJokesPage from '../ProgramJokesPage/ProgramJokesPage';
+import KnockJokesPage from '../KnockJokesPage/KnockJokesPage';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      jokes: []
     };
   }
 
@@ -57,6 +61,24 @@ class App extends Component {
         } />
         <Route exact path='/' render={({ history }) =>
           <JokesPage
+            history={history}
+            user={this.state.user}
+          />
+        } />
+        <Route exact path='/general' render={({ history }) =>
+          <GenJokesPage
+            history={history}
+            user={this.state.user}
+          />
+        } />
+        <Route exact path='/programming' render={({ history }) =>
+          <ProgramJokesPage
+            history={history}
+            user={this.state.user}
+          />
+        } />
+        <Route exact path='/knock' render={({ history }) =>
+          <KnockJokesPage
             history={history}
             user={this.state.user}
           />

@@ -1,9 +1,18 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
-const KnockJokesPage = () => {
+const KnockJokesPage = (props) => {
+    let knock = props.user ?
+        <div>
+            <h2>Knock-Knock</h2>
+        </div>
+        :
+        <div>
+            <Redirect to='/' />
+        </div>
     return (
         <div>
-            <h5>Knock-Knock</h5>
+            {knock}
         </div>
     )
 }

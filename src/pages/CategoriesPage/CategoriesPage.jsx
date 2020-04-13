@@ -1,15 +1,15 @@
 import React from 'react';
-import GenJokesPage from '../GenJokesPage/GenJokesPage';
-import ProgramJokesPage from '../ProgramJokesPage/ProgramJokesPage';
-import KnockJokesPage from '../KnockJokesPage/KnockJokesPage';
+import { Link } from 'react-router-dom';
 
 const CategoriesPage = () => {
     return (
-        <div>
+        <div className="Categories">
             <h3>Categories</h3>
-            <GenJokesPage />
-            <ProgramJokesPage />
-            <KnockJokesPage />
+            <div>
+                <Link className='btn btn-default' to='/general'>General</Link>
+                <Link className='btn btn-default' to='/programming'>Programming</Link>
+                <Link className='btn btn-default' to='/knock'>Knock-Knock</Link>
+            </div>
         </div>
     )
 }
