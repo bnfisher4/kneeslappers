@@ -1,18 +1,22 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { getKnockJoke } from '../../utils/dadJokes-api';
 
 const KnockJokesPage = (props) => {
-    let knock = props.user ?
-        <div>
-            <h2>Knock-Knock</h2>
-        </div>
-        :
-        <div>
-            <Redirect to='/' />
-        </div>
+
+    const [knockJoke, setKnockJoke] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getKnockJoke();
+            const results = await data.json();
+            setKnockJoke(`${results[0].setup} ${results[0].punchline}`)
+        }
+        fetchData();
+    }, [])
+
     return (
         <div>
-            {knock}
+            {knockJoke}
         </div>
     )
 }
