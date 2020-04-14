@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-// import { getKnockJoke } from '../../utils/jokesService-api';
+import { getJoke } from '../../utils/jokesService-api';
 
 const KnockJokesPage = (props) => {
 
     const [knockJoke, setKnockJoke] = useState('');
 
     async function fetchData() {
-        const res = await fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/type/knock-knock');
-        res.json().then(res => setKnockJoke(`${res[0].setup} ${res[0].punchline}`))
+        const res = await getJoke('type/knock-knock');
+        const jokeData = JSON.parse(res)
+        setKnockJoke(`${jokeData[0].setup} ${jokeData[0].punchline}`)
     }
     useEffect(() => {
         fetchData();

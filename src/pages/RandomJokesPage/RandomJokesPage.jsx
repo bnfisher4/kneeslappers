@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card } from 'semantic-ui-react'
 
-// import { getRandomJoke } from '../../utils/jokesService-api';
+import { getRandomJoke } from '../../utils/jokesService-api';
 
 const RandomJokesPage = (props) => {
 
     const [randomJoke, setRandomJoke] = useState([]);
 
     async function fetchData() {
-        const res = await fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes/5');
-        res.json().then(res => setRandomJoke(res))
+        const res = await getRandomJoke('jokes/');
+        console.log(res);
+        const jokeData = JSON.parse(res)
+        console.log(jokeData)
+        setRandomJoke([jokeData]);
     }
     useEffect(() => {
         fetchData();
@@ -19,15 +22,17 @@ const RandomJokesPage = (props) => {
         <Card>
             {randomJoke.map(r => {
                 return (
-                    <Card.Content>
+                    <Card.Content key={r.id}>
                         <Card.Header>Random</Card.Header>
                         <Card.Description>
-                            <p key={r.id}>
-                                <p className='meta'>{r.type}</p>
-                                {r.setup}
+                            <p className='meta'>{r.type}</p>
+                            <p>
+                                {r.setup} <br />
                                 {r.punchline}
                             </p>
                         </Card.Description>
+                        <br />
+                        <Button basic color='green'>Add to Joke Box</Button>
                     </Card.Content>
                 )
             })}
