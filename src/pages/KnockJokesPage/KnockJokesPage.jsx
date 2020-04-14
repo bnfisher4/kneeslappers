@@ -14,9 +14,13 @@ const KnockJokesPage = (props) => {
     }, []);
 
     return (
-        <div>
-            <h1>Knock-Knock Jokes</h1>
-            {knockJoke}
+        <div className='ui card'>
+            <div className='content'>
+                <div className="header">Knock-Knock</div>
+                <div className="description">
+                    {knockJoke}
+                </div>
+            </div>
         </div>
     )
 }

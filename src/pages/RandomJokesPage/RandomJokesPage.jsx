@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Card, Image } from 'semantic-ui-react'
+
 // import { getRandomJoke } from '../../utils/jokesService-api';
 
 const RandomJokesPage = (props) => {
@@ -14,17 +16,22 @@ const RandomJokesPage = (props) => {
     }, []);
 
     return (
-        <div>
-            <h1>Random Jokes</h1>
+        <Card>
             {randomJoke.map(r => {
                 return (
-                    <p key={r.id}>
-                        {r.setup}
-                        {r.punchline}
-                    </p>
+                    <Card.Content>
+                        <Card.Header>Random</Card.Header>
+                        <Card.Description>
+                            <p key={r.id}>
+                                <p className='meta'>{r.type}</p>
+                                {r.setup}
+                                {r.punchline}
+                            </p>
+                        </Card.Description>
+                    </Card.Content>
                 )
             })}
-        </div>
+        </Card>
     )
 }
 

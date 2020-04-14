@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import 'semantic-ui-css/semantic.min.css'
+
 // import { getGeneralJoke } from '../../utils/jokesService-api';
 
 const GenJokesPage = (props) => {
@@ -14,9 +16,13 @@ const GenJokesPage = (props) => {
     }, []);
 
     return (
-        <div>
-            <h1>General Jokes</h1>
-            {genJoke}
+        <div className='ui card'>
+            <div className='content'>
+                <div className="header">General</div>
+                <div className="description">
+                    {genJoke}
+                </div>
+            </div>
         </div>
     )
 }

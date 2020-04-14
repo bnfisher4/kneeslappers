@@ -1,8 +1,8 @@
 const BASE_URL = '/api/jokes'
 
-// export function getRandomJoke() {
-//     return fetch(BASE_URL + "/random/jokes/5");
-// }
+export function getRandomJoke() {
+    return fetch(BASE_URL + '/random/jokes').then(res => res.json());
+}
 
 // export function getGeneralJoke() {
 //     return fetch(BASE_URL + "/random/type/general", {

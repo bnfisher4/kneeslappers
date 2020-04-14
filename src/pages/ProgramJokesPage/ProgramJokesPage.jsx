@@ -14,9 +14,13 @@ const ProgramJokesPage = (props) => {
     }, []);
 
     return (
-        <div>
-            <h1>Programming Jokes</h1>
-            {proJoke}
+        <div className='ui card'>
+            <div className='content'>
+                <div className="header">Programming</div>
+                <div className="description">
+                    {proJoke}
+                </div>
+            </div>
         </div>
     )
 }
