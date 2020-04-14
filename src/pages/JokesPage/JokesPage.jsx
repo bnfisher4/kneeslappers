@@ -8,7 +8,6 @@ function JokesPage(props) {
         </div>
         :
         <div>
-            <h1>Jokes Page</h1>
             <h2>Welcome to Kneeslappers</h2>
             <p>Sign up or Log in to see some Dad Jokes!</p>
         </div>

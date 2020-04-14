@@ -5,7 +5,6 @@ import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
 import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
-import { getRandomJoke } from '../../utils/dadJokes-api'
 import JokesPage from '../JokesPage/JokesPage';
 import GenJokesPage from '../GenJokesPage/GenJokesPage';
 import ProgramJokesPage from '../ProgramJokesPage/ProgramJokesPage';

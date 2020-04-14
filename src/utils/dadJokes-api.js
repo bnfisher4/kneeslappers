@@ -2,7 +2,7 @@ const BASE_URL = 'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes'
 const API_KEY = '30ff1b0919msh0fdee39a9b0e567p12aa23jsn5300cbd8efaa'
 
 export function getRandomJoke() {
-    return fetch(BASE_URL + "/random/jokes/15", {
+    return fetch(BASE_URL + "/random/jokes/5", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "dad-jokes.p.rapidapi.com",

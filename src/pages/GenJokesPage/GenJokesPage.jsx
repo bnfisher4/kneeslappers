@@ -9,7 +9,6 @@ const GenJokesPage = (props) => {
         const fetchData = async () => {
             const data = await getGeneralJoke();
             const results = await data.json();
-            // console.log(results);
             setGenJoke(`${results[0].setup} ${results[0].punchline}`)
         }
         fetchData();
