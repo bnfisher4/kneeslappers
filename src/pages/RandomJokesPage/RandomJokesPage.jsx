@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { getRandomJoke } from '../../utils/dadJokes-api';
+// import { getRandomJoke } from '../../utils/jokesService-api';
 
 const RandomJokesPage = (props) => {
 
     const [randomJoke, setRandomJoke] = useState([]);
 
+    async function fetchData() {
+        const res = await fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes/5');
+        res.json().then(res => setRandomJoke(res))
+    }
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getRandomJoke();
-            const results = await data.json();
-            console.log(results)
-            setRandomJoke(results)
-        }
         fetchData();
-    }, [])
+    }, []);
 
     return (
         <div>

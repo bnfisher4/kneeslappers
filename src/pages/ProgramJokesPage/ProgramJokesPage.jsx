@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { getProgramJoke } from '../../utils/dadJokes-api';
+// import { getProgramJoke } from '../../utils/jokesService-api';
 
 const ProgramJokesPage = (props) => {
 
     const [proJoke, setProJoke] = useState('');
 
+    async function fetchData() {
+        const res = await fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/type/programming');
+        res.json().then(res => setProJoke(`${res[0].setup} ${res[0].punchline}`))
+    }
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getProgramJoke();
-            const results = await data.json();
-            setProJoke(`${results[0].setup} ${results[0].punchline}`)
-        }
         fetchData();
-    }, [])
+    }, []);
 
     return (
         <div>
