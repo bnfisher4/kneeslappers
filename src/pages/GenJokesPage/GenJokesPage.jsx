@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import 'semantic-ui-css/semantic.min.css'
-import { getJoke } from '../../utils/jokesService-api';
+import { getJoke } from '../../utils/jokeService';
 
 
 const GenJokesPage = (props) => {
 
     const [genJoke, setGenJoke] = useState('');
+    const [newJoke, setNewJoke] = useState(false);
 
     async function fetchData() {
         const res = await getJoke('type/general');
@@ -14,16 +15,19 @@ const GenJokesPage = (props) => {
     }
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [newJoke]);
 
     return (
-        <div className='ui card'>
-            <div className='content'>
-                <div className="header">General</div>
-                <div className="description">
-                    {genJoke}
+        <div>
+            <div className='ui card'>
+                <div className='content'>
+                    <div className="header">General</div>
+                    <div className="description">
+                        {genJoke}
+                    </div>
                 </div>
             </div>
+            <button onClick={() => setNewJoke(!newJoke)}>New Joke</button>
         </div>
     )
 }

@@ -11,15 +11,23 @@ import ProgramJokesPage from '../ProgramJokesPage/ProgramJokesPage';
 import KnockJokesPage from '../KnockJokesPage/KnockJokesPage';
 import RandomJokesPage from '../RandomJokesPage/RandomJokesPage';
 
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: userService.getUser(),
-      jokes: []
+      jokes: '',
     };
   }
+
+  // newJoke() {
+  //   let jokes = getJoke();
+  //   this.setState({ jokes: jokes });
+  // }
+
+  // handleNewJokeClick = () => {
+  //   this.setState({ jokes: jokeService.getJoke() });
+  // }
 
   handleLogout = () => {
     userService.logout();
@@ -69,7 +77,6 @@ class App extends Component {
           <GenJokesPage
             history={history}
             user={this.state.user}
-            jokes={this.state.jokes}
           />
         } />
         <Route exact path='/programming' render={({ history }) =>

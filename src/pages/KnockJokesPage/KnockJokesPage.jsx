@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getJoke } from '../../utils/jokesService-api';
+import { getJoke } from '../../utils/jokeService';
 
 const KnockJokesPage = (props) => {
 

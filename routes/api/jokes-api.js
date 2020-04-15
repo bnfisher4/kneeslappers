@@ -19,13 +19,5 @@ router.get('/', function (req, res) {
     });
 });
 
-// router.get('/', function (req, res) {
-//     request('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes',
-//         function (error, response, body) {
-//             res.json(body)
-//         });
-// });
-
-
 
 module.exports = router;
