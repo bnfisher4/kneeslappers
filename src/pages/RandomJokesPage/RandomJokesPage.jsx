@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card } from 'semantic-ui-react'
-
 import { getJoke } from '../../utils/jokeService';
 
 const RandomJokesPage = (props) => {
@@ -20,7 +18,7 @@ const RandomJokesPage = (props) => {
 
     return (
         <div>
-            <div className='ui card'>
+            <div className='ui centered yellow card'>
                 <div className='content'>
                     <div className="header">Random</div>
                     <div className="description">

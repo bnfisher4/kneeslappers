@@ -19,7 +19,7 @@ const ProgramJokesPage = (props) => {
 
     return (
         <div>
-            <div className='ui card'>
+            <div className='ui centered blue card'>
                 <div className='content'>
                     <div className="header">Programming</div>
                     <div className="description">

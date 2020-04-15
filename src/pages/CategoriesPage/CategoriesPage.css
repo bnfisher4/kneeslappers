@@ -1,4 +1,17 @@
 .Categories {
     display: flex;
     flex-direction: column;
+    justify-items: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#btn {
+    margin: 20px;
+    font-size: large;
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import { getJoke } from '../../utils/jokeService';
-import JokeCard from '../../components/JokeCard/JokeCard';
 
 
 const GenJokesPage = (props) => {
@@ -20,7 +19,7 @@ const GenJokesPage = (props) => {
 
     return (
         <div>
-            <div className='ui card'>
+            <div className='ui centered red card'>
                 <div className='content'>
                     <div className="header">General</div>
                     <div className="description">

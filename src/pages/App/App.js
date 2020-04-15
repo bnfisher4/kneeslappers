@@ -25,7 +25,6 @@ class App extends Component {
   async componentDidMount() {
     const jokes = await jokeAPI.getJoke('jokes/');
     this.setState({ jokes });
-    console.log(jokes)
   }
 
   // handleNewJokeClick = () => {

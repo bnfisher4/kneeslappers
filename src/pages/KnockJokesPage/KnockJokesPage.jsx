@@ -17,7 +17,7 @@ const KnockJokesPage = (props) => {
 
     return (
         <div>
-            <div className='ui card'>
+            <div className='ui centered green card'>
                 <div className='content'>
                     <div className="header">Knock-Knock</div>
                     <div className="description">
