@@ -11,6 +11,7 @@ import GenJokesPage from '../GenJokesPage/GenJokesPage';
 import ProgramJokesPage from '../ProgramJokesPage/ProgramJokesPage';
 import KnockJokesPage from '../KnockJokesPage/KnockJokesPage';
 import RandomJokesPage from '../RandomJokesPage/RandomJokesPage';
+import FavoritesPage from '../FavoritesPage/FavoritesPage';
 
 class App extends Component {
   constructor() {
@@ -24,7 +25,9 @@ class App extends Component {
 
   async componentDidMount() {
     const jokes = await jokeAPI.getJoke('jokes/');
+    const jokeInfo = JSON.parse(jokes)
     this.setState({ jokes });
+    console.log(jokeInfo)
   }
 
   // handleNewJokeClick = () => {
@@ -70,7 +73,6 @@ class App extends Component {
           <GenJokesPage
             history={history}
             user={this.state.user}
-            jokes={this.state.jokes}
           />
         } />
         <Route exact path='/programming' render={({ history }) =>
@@ -89,6 +91,13 @@ class App extends Component {
           <RandomJokesPage
             history={history}
             user={this.state.user}
+          />
+        } />
+        <Route exact path='/favorites' render={({ history }) =>
+          <FavoritesPage
+            history={history}
+            user={this.state.user}
+            jokes={this.state.jokes}
           />
         } />
       </div>
