@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
+import * as jokeAPI from '../../utils/jokeService';
 import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
 import NavBar from '../../components/NavBar/NavBar';
@@ -16,14 +17,16 @@ class App extends Component {
     super();
     this.state = {
       user: userService.getUser(),
-      jokes: '',
+      jokes: [],
     };
   }
 
-  // newJoke() {
-  //   let jokes = getJoke();
-  //   this.setState({ jokes: jokes });
-  // }
+
+  async componentDidMount() {
+    const jokes = await jokeAPI.getJoke('jokes/');
+    this.setState({ jokes });
+    console.log(jokes)
+  }
 
   // handleNewJokeClick = () => {
   //   this.setState({ jokes: jokeService.getJoke() });
@@ -38,15 +41,6 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   }
 
-  // async componentDidMount() {
-  //   try {
-  //     const data = await getRandomJoke();
-  //     const results = await data.json();
-  //     console.log(results);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
 
   render() {
     return (
@@ -77,6 +71,7 @@ class App extends Component {
           <GenJokesPage
             history={history}
             user={this.state.user}
+            jokes={this.state.jokes}
           />
         } />
         <Route exact path='/programming' render={({ history }) =>

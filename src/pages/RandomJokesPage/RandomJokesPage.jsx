@@ -5,37 +5,30 @@ import { getJoke } from '../../utils/jokeService';
 
 const RandomJokesPage = (props) => {
 
-    const [randomJoke, setRandomJoke] = useState([]);
+    const [randomJoke, setRandomJoke] = useState('');
+    const [newJoke, setNewJoke] = useState(false);
+
 
     async function fetchData() {
         const res = await getJoke('jokes/');
         const jokeData = JSON.parse(res)
-        setRandomJoke([jokeData]);
+        setRandomJoke(`${jokeData.setup} ${jokeData.punchline}`);
     }
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [newJoke]);
 
     return (
         <div>
-            <Card>
-                {randomJoke.map(r => {
-                    return (
-                        <Card.Content key={r.id}>
-                            <Card.Header>Random</Card.Header>
-                            <Card.Description>
-                                <p className='meta'>{r.type}</p>
-                                <p>
-                                    {r.setup} <br />
-                                    {r.punchline}
-                                </p>
-                            </Card.Description>
-                            <br />
-                            <Button basic color='green'>Add to Joke Book</Button>
-                        </Card.Content>
-                    )
-                })}
-            </Card>
+            <div className='ui card'>
+                <div className='content'>
+                    <div className="header">Random</div>
+                    <div className="description">
+                        {randomJoke}
+                    </div>
+                </div>
+            </div>
+            <button onClick={() => setNewJoke(!newJoke)}>New Joke</button>
         </div>
     )
 }

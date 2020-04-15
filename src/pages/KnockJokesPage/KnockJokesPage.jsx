@@ -4,6 +4,7 @@ import { getJoke } from '../../utils/jokeService';
 const KnockJokesPage = (props) => {
 
     const [knockJoke, setKnockJoke] = useState('');
+    const [newJoke, setNewJoke] = useState(false);
 
     async function fetchData() {
         const res = await getJoke('type/knock-knock');
@@ -12,16 +13,19 @@ const KnockJokesPage = (props) => {
     }
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [newJoke]);
 
     return (
-        <div className='ui card'>
-            <div className='content'>
-                <div className="header">Knock-Knock</div>
-                <div className="description">
-                    {knockJoke}
+        <div>
+            <div className='ui card'>
+                <div className='content'>
+                    <div className="header">Knock-Knock</div>
+                    <div className="description">
+                        {knockJoke}
+                    </div>
                 </div>
             </div>
+            <button onClick={() => setNewJoke(!newJoke)}>New Joke</button>
         </div>
     )
 }
