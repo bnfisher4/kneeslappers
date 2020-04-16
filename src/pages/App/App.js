@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import * as jokeAPI from '../../utils/jokeService';
 import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
@@ -26,9 +26,11 @@ class App extends Component {
   async componentDidMount() {
     const jokes = await jokeAPI.getJoke('jokes/');
     const jokeInfo = JSON.parse(jokes)
-    this.setState({ jokes });
+    this.setState({ jokeInfo });
     console.log(jokeInfo)
   }
+
+
 
   // handleNewJokeClick = () => {
   //   this.setState({ jokes: jokeService.getJoke() });
@@ -70,10 +72,13 @@ class App extends Component {
           />
         } />
         <Route exact path='/general' render={({ history }) =>
-          <GenJokesPage
-            history={history}
-            user={this.state.user}
-          />
+          userService.getUser() ?
+            <GenJokesPage
+              history={history}
+              user={this.state.user}
+            />
+            :
+            <Redirect to='/login' />
         } />
         <Route exact path='/programming' render={({ history }) =>
           <ProgramJokesPage
