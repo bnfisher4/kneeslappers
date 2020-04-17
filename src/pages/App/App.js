@@ -62,29 +62,41 @@ class App extends Component {
           />
         } />
         <Route exact path='/general' render={({ history }) =>
-          <GenJokesPage
-            history={history}
-            user={this.state.user}
-            addFavJoke={this.addFavJoke}
-          />
+          userService.getUser() ?
+            <GenJokesPage
+              history={history}
+              user={this.state.user}
+              addFavJoke={this.addFavJoke}
+            />
+            :
+            <Redirect to='/login' />
         } />
         <Route exact path='/programming' render={({ history }) =>
-          <ProgramJokesPage
-            history={history}
-            user={this.state.user}
-          />
+          userService.getUser() ?
+            <ProgramJokesPage
+              history={history}
+              user={this.state.user}
+            />
+            :
+            <Redirect to='/login' />
         } />
         <Route exact path='/knock' render={({ history }) =>
-          <KnockJokesPage
-            history={history}
-            user={this.state.user}
-          />
+          userService.getUser() ?
+            <KnockJokesPage
+              history={history}
+              user={this.state.user}
+            />
+            :
+            <Redirect to='/login' />
         } />
         <Route exact path='/random' render={({ history }) =>
-          <RandomJokesPage
-            history={history}
-            user={this.state.user}
-          />
+          userService.getUser() ?
+            <RandomJokesPage
+              history={history}
+              user={this.state.user}
+            />
+            :
+            <Redirect to='/login' />
         } />
       </div>
     );

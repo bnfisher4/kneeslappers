@@ -17,3 +17,7 @@
 .NavBar-welcome {
   color: black;
 }
+
+span {
+  text-align: right;
+}
