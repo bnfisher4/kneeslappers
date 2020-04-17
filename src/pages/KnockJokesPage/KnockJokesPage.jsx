@@ -3,13 +3,16 @@ import { getJoke } from '../../utils/jokeService';
 
 const KnockJokesPage = (props) => {
 
-    const [knockJoke, setKnockJoke] = useState('');
+    const [knockJoke, setKnockJoke] = useState({});
     const [newJoke, setNewJoke] = useState(false);
 
     async function fetchData() {
         const res = await getJoke('type/knock-knock');
-        const jokeData = JSON.parse(res)
-        setKnockJoke(`${jokeData[0].setup} ${jokeData[0].punchline}`)
+        const [jokeData] = JSON.parse(res)
+        setKnockJoke({
+            setup: jokeData.setup,
+            punchline: jokeData.punchline,
+        });
     }
     useEffect(() => {
         fetchData();
@@ -21,7 +24,8 @@ const KnockJokesPage = (props) => {
                 <div className='content'>
                     <div className="header">Knock-Knock</div>
                     <div className="description">
-                        {knockJoke}
+                        <p>{knockJoke.setup}</p>
+                        <p>{knockJoke.punchline}</p>
                     </div>
                 </div>
             </div>

@@ -3,14 +3,18 @@ import { getJoke } from '../../utils/jokeService';
 
 const RandomJokesPage = (props) => {
 
-    const [randomJoke, setRandomJoke] = useState('');
+    const [randomJoke, setRandomJoke] = useState({});
     const [newJoke, setNewJoke] = useState(false);
 
 
     async function fetchData() {
         const res = await getJoke('jokes/');
         const jokeData = JSON.parse(res)
-        setRandomJoke(`${jokeData.setup} ${jokeData.punchline}`);
+        setRandomJoke({
+            setup: jokeData.setup,
+            punchline: jokeData.punchline,
+            type: jokeData.type
+        });
     }
     useEffect(() => {
         fetchData();
@@ -22,7 +26,9 @@ const RandomJokesPage = (props) => {
                 <div className='content'>
                     <div className="header">Random</div>
                     <div className="description">
-                        {randomJoke}
+                        <p className='meta'>{randomJoke.type}</p>
+                        <p> {randomJoke.setup} </p>
+                        <p>{randomJoke.punchline}</p>
                     </div>
                 </div>
             </div>

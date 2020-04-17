@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { getJoke } from '../../utils/jokeService';
 
-const ProgramJokesPage = (props) => {
+const ProgramJokesPage = () => {
 
-    const [proJoke, setProJoke] = useState('');
+    const [proJoke, setProJoke] = useState({});
     const [newJoke, setNewJoke] = useState(false);
 
     async function fetchData() {
         const res = await getJoke('type/programming');
-        console.log(res);
-        const jokeData = JSON.parse(res)
-        console.log(jokeData)
-        setProJoke(`${jokeData[0].setup} ${jokeData[0].punchline}`)
+        const [jokeData] = JSON.parse(res)
+        setProJoke({
+            setup: jokeData.setup,
+            punchline: jokeData.punchline,
+        })
     }
     useEffect(() => {
         fetchData();
@@ -23,7 +24,8 @@ const ProgramJokesPage = (props) => {
                 <div className='content'>
                     <div className="header">Programming</div>
                     <div className="description">
-                        {proJoke}
+                        <p>{proJoke.setup}</p>
+                        <p>{proJoke.punchline}</p>
                     </div>
                 </div>
             </div>

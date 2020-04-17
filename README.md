@@ -13,8 +13,8 @@ Kneeslappers is a web app where you can visit to see random dad jokes! You can c
 
 
 ## Getting Started
-[Kneeslappers](https://kneeslappers.herokuapp.com/)
-[Planning](https://trello.com/b/6K5anC8v/project-4-kneeslappers)
+- [Kneeslappers](https://kneeslappers.herokuapp.com/)
+- [Planning](https://trello.com/b/6K5anC8v/project-4-kneeslappers)
 
 
 ## Next Steps

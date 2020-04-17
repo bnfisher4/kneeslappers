@@ -27,14 +27,7 @@ class App extends Component {
     const jokes = await jokeAPI.getJoke('jokes/');
     const jokeInfo = JSON.parse(jokes)
     this.setState({ jokeInfo });
-    console.log(jokeInfo)
   }
-
-
-
-  // handleNewJokeClick = () => {
-  //   this.setState({ jokes: jokeService.getJoke() });
-  // }
 
   handleLogout = () => {
     userService.logout();
@@ -43,6 +36,10 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
+  }
+
+  handleGetJoke = () => {
+
   }
 
 
@@ -72,13 +69,11 @@ class App extends Component {
           />
         } />
         <Route exact path='/general' render={({ history }) =>
-          userService.getUser() ?
-            <GenJokesPage
-              history={history}
-              user={this.state.user}
-            />
-            :
-            <Redirect to='/login' />
+          <GenJokesPage
+            history={history}
+            user={this.state.user}
+            addFavJoke={this.addFavJoke}
+          />
         } />
         <Route exact path='/programming' render={({ history }) =>
           <ProgramJokesPage

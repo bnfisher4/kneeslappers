@@ -6,14 +6,15 @@ export function getJoke(type) {
     return fetch(BASE_URL + '/?type=' + type).then(res => res.json());
 }
 
-export function create(favjoke) {
+export function favJoke(jokeData) {
     const options = {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
+            // Add this header - don't forget the space after Bearer
             'Authorization': 'Bearer ' + tokenService.getToken()
         },
-        body: JSON.stringify(favjoke)
+        body: JSON.stringify(jokeData)
     };
-    return fetch(BASE_URL, options).then(res => res.json());
+    return fetch(BASE_URL + '/favorites', options).then(res => res.json());
 }

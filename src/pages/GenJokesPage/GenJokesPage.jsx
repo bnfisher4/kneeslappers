@@ -5,17 +5,22 @@ import { getJoke } from '../../utils/jokeService';
 
 const GenJokesPage = (props) => {
 
-    const [genJoke, setGenJoke] = useState('');
+    const [genJoke, setGenJoke] = useState({});
     const [newJoke, setNewJoke] = useState(false);
 
     async function fetchData() {
         const res = await getJoke('type/general');
-        const jokeData = JSON.parse(res)
-        setGenJoke(`${jokeData[0].setup} ${jokeData[0].punchline}`)
+        const [jokeData] = JSON.parse(res)
+        console.log(jokeData)
+        setGenJoke({
+            setup: jokeData.setup,
+            punchline: jokeData.punchline,
+        })
     }
     useEffect(() => {
         fetchData();
     }, [newJoke]);
+
 
     return (
         <div>
@@ -23,7 +28,8 @@ const GenJokesPage = (props) => {
                 <div className='content'>
                     <div className="header">General</div>
                     <div className="description">
-                        {genJoke}
+                        <p> {genJoke.setup} </p>
+                        <p> {genJoke.punchline} </p>
                     </div>
                 </div>
             </div>

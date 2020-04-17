@@ -1,8 +1,9 @@
 const Joke = require('../models/joke');
+const User = require('../models/user');
 
 module.exports = {
     index,
-    show
+    create
 }
 
 async function index(req, res) {
@@ -10,7 +11,13 @@ async function index(req, res) {
     res.status(200).json(jokes);
 }
 
-async function show(req, res) {
-    const joke = await Joke.findById(req.params.id);
-    res.status(200).json(joke)
+async function create(req, res) {
+    try {
+        const joke = await Joke.create(req.body);
+        joke.favoritedBy.push(req.user_id);
+        await joke.save()
+        res.status(200).json(joke)
+    } catch (err) {
+        console.log(err)
+    }
 }
