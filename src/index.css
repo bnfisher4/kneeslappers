@@ -15,3 +15,13 @@ code {
 button:focus, .btn:focus {
   outline: none;
 }
+
+.card {
+  display: grid;
+  font-size: x-large;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10%;
+  margin-bottom: 10px;
+}

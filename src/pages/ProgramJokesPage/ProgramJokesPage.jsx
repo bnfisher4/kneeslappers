@@ -19,8 +19,8 @@ const ProgramJokesPage = () => {
     }, [newJoke]);
 
     return (
-        <div>
-            <div className='ui centered blue card'>
+        <div className='card'>
+            <div className='ui centered blue fluid card'>
                 <div className='content'>
                     <div className="header">Programming</div>
                     <div className="description">
@@ -29,7 +29,7 @@ const ProgramJokesPage = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={() => setNewJoke(!newJoke)}>New Joke</button>
+            <button className='ui blue button' onClick={() => setNewJoke(!newJoke)}>New Joke</button>
         </div>
     )
 }

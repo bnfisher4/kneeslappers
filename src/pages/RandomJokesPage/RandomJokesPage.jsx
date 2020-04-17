@@ -21,8 +21,8 @@ const RandomJokesPage = (props) => {
     }, [newJoke]);
 
     return (
-        <div>
-            <div className='ui centered yellow card'>
+        <div className='card'>
+            <div className='ui centered yellow fluid card'>
                 <div className='content'>
                     <div className="header">Random</div>
                     <div className="description">
@@ -32,7 +32,7 @@ const RandomJokesPage = (props) => {
                     </div>
                 </div>
             </div>
-            <button onClick={() => setNewJoke(!newJoke)}>New Joke</button>
+            <button className='ui yellow button' onClick={() => setNewJoke(!newJoke)}>New Joke</button>
         </div>
     )
 }

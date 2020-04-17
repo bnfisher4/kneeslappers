@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getJoke } from '../../utils/jokeService';
+import 'semantic-ui-css/semantic.min.css'
 
 const KnockJokesPage = (props) => {
 
@@ -19,8 +20,8 @@ const KnockJokesPage = (props) => {
     }, [newJoke]);
 
     return (
-        <div>
-            <div className='ui centered green card'>
+        <div className='card'>
+            <div className='ui centered green fluid card'>
                 <div className='content'>
                     <div className="header">Knock-Knock</div>
                     <div className="description">
@@ -29,7 +30,7 @@ const KnockJokesPage = (props) => {
                     </div>
                 </div>
             </div>
-            <button onClick={() => setNewJoke(!newJoke)}>New Joke</button>
+            <button className='ui green button' onClick={() => setNewJoke(!newJoke)}>New Joke</button>
         </div>
     )
 }
