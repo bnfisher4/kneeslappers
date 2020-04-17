@@ -11,14 +11,12 @@ import GenJokesPage from '../GenJokesPage/GenJokesPage';
 import ProgramJokesPage from '../ProgramJokesPage/ProgramJokesPage';
 import KnockJokesPage from '../KnockJokesPage/KnockJokesPage';
 import RandomJokesPage from '../RandomJokesPage/RandomJokesPage';
-import FavoritesPage from '../FavoritesPage/FavoritesPage';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: userService.getUser(),
-      jokes: [],
     };
   }
 
@@ -37,11 +35,6 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   }
-
-  handleGetJoke = () => {
-
-  }
-
 
   render() {
     return (
@@ -91,13 +84,6 @@ class App extends Component {
           <RandomJokesPage
             history={history}
             user={this.state.user}
-          />
-        } />
-        <Route exact path='/favorites' render={({ history }) =>
-          <FavoritesPage
-            history={history}
-            user={this.state.user}
-            jokes={this.state.jokes}
           />
         } />
       </div>
