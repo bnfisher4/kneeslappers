@@ -11,25 +11,25 @@ const CategoriesPage = () => {
             <div className='links'>
                 <Link
                     id='btn'
-                    className='ui icon left labeled red basic button'
+                    className='ui icon left labeled red button'
                     to='/general'><i aria-hidden="true" className="book icon"></i>
                         General
                 </Link>
                 <Link
                     id='btn'
-                    className='ui icon left labeled blue basic button'
+                    className='ui icon left labeled blue button'
                     to='/programming'><i aria-hidden="true" className="code icon"></i>
                         Programming
                 </Link>
                 <Link
                     id='btn'
-                    className='ui icon left labeled green basic button'
+                    className='ui icon left labeled green button'
                     to='/knock'><i aria-hidden="true" className="key icon"></i>
                         Knock-Knock
                 </Link>
                 <Link
                     id='btn'
-                    className='ui icon left labeled yellow basic button'
+                    className='ui icon left labeled yellow button'
                     to='/random'><i aria-hidden="true" className="help icon"></i>
                         Random
                 </Link>

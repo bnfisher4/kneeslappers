@@ -5,19 +5,27 @@
   padding: 2vmin;
   font-size: 2.5vmin;
   margin: 0 0 20px;
-  background-color: lime;
+  background-color: red;
   height: 50px;
 }
   
 .NavBar-link {
   margin: 0 10px;
+  color: white;
+}
+
+.NavBar-link:hover {
+  color: black;
+}
+
+.NavBar-link:active {
   color: black;
 }
   
 .NavBar-welcome {
-  color: black;
+  color: white;
 }
 
 span {
-  text-align: right;
+  margin-left: 40px;
 }
