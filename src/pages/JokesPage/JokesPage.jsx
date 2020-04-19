@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoriesPage from '../CategoriesPage/CategoriesPage';
+import './JokesPage.css'
 
 function JokesPage(props) {
     let jokes = props.user ?
@@ -8,8 +9,8 @@ function JokesPage(props) {
         </div>
         :
         <div>
-            <h2>Welcome to Kneeslappers</h2>
-            <p>Sign up or Log in to see some Dad Jokes!</p>
+            <h1>Welcome to Kneeslappers</h1>
+            <h3>Sign up or Log in to see some Dad Jokes!</h3>
         </div>
 
     return (

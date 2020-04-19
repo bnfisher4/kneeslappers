@@ -5,3 +5,9 @@
     align-items: center;
     margin-bottom: 50px;
 }
+
+header {
+    color: white;
+    font-size: large;
+    margin-bottom: 15px;
+}
