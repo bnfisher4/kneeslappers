@@ -5,7 +5,7 @@ import './NavBar.css'
 const NavBar = (props) => {
     let nav = props.user ?
         <div>
-            <span className='logo'>KNEESLAPPERS</span>
+            <span className='nav-start'>KNEESLAPPERS</span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
             &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

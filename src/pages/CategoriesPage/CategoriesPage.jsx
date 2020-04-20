@@ -7,7 +7,7 @@ import 'semantic-ui-css/semantic.min.css'
 const CategoriesPage = () => {
     return (
         <div className="Categories">
-            <h1>KneeSlappin' Categories</h1>
+            <h1 className='cat'>KneeSlappin' Categories</h1>
             <div className='links'>
                 <Link
                     id='btn'

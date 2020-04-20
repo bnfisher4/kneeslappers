@@ -8,9 +8,12 @@ function JokesPage(props) {
             <CategoriesPage />
         </div>
         :
-        <div>
-            <h1>Welcome to Kneeslappers</h1>
-            <h3>Sign up or Log in to see some Dad Jokes!</h3>
+        <div className='ui centered card'>
+            <div className='content'>
+                <h1>Welcome to Kneeslappers!</h1>
+                <h3>Sign up or Log in to see some Dad Jokes!</h3>
+            </div>
+            <div className='image'><img src='https://i.imgur.com/GrB3X3Y.png?1' alt='Dad' /></div>
         </div>
 
     return (

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import 'semantic-ui-css/semantic.min.css'
 import { getJoke } from '../../utils/jokeService';
 
 

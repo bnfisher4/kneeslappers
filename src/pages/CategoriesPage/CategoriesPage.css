@@ -16,6 +16,7 @@
     font-size: x-large;
 }
 
-h1 {
+.cat {
     color: white;
+    font-family: 'Bangers', cursive;
 }
