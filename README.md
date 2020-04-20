@@ -2,8 +2,8 @@
 Kneeslappers is a web app where you can visit to see random dad jokes! You can choose between categories such as Programming, Knock-knock, and General.
 
 ## Screenshots
-[Kneeslappers]!(https://i.imgur.com/0pzHKPq.png)
-[Kneeslappers]!(https://i.imgur.com/h7EfWfU.png)
+![Kneeslappers](https://i.imgur.com/0pzHKPq.png)
+![Kneeslappers](https://i.imgur.com/h7EfWfU.png)
 
 ## Technologies
 - MongoDB
